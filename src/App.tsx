@@ -4,8 +4,17 @@ import DataStructureDisplay from './components/DataStructureDisplay'
 import OrderGenerationAnimation from './components/OrderGenerationAnimation'
 import DataFlowProcess from './components/DataFlowProcess'
 import Footer from './components/Footer'
+import { Button } from './components/ui/button'
+import { useNavigate } from 'react-router-dom'
+import { FileText } from 'lucide-react'
 
 function App() {
+  const navigate = useNavigate()
+
+  const handlePreviewRentalOrder = () => {
+    navigate('/rental-order-detail')
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Header />
@@ -40,6 +49,17 @@ function App() {
 
         {/* Data Flow Process */}
         <DataFlowProcess />
+        
+        {/* 预览租赁单按钮 */}
+        <div className="text-center">
+          <Button 
+            onClick={handlePreviewRentalOrder}
+            className="text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-lg py-6 px-8 shadow-lg transform transition-all hover:scale-105"
+          >
+            <FileText className="mr-2 h-5 w-5" />
+            预览租赁单
+          </Button>
+        </div>
       </main>
       <Footer />
     </div>
