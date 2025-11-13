@@ -6,6 +6,9 @@ import sourceIdentifierPlugin from 'vite-plugin-source-identifier'
 const isProd = process.env.BUILD_MODE === 'prod'
 export default defineConfig({
   base: isProd ? '/honghu_container_rental_poc/' : '/',
+  build: {
+    outDir: 'docs',
+  },
   plugins: [
     react(), 
     sourceIdentifierPlugin({
